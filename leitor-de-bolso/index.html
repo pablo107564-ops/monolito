@@ -93,7 +93,7 @@ p{margin:0}
 
 .top{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--bg) 90%, transparent);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
 .top .wrap{display:flex;align-items:center;gap:18px;height:66px}
-.marca{display:flex;align-items:center;gap:12px;color:var(--ink);text-decoration:none;font-family:var(--serif);font-weight:700;font-size:21px;--dobra:var(--bg)}
+.marca{display:flex;align-items:center;gap:12px;white-space:nowrap;color:var(--ink);text-decoration:none;font-family:var(--serif);font-weight:700;font-size:21px;--dobra:var(--bg)}
 .marca .folha{color:var(--accent);width:24px;height:30px;padding:0 5px;gap:3px}
 .menu{display:flex;gap:24px;margin-left:auto;align-items:center}
 .menu a:not(.btn){color:var(--muted);text-decoration:none;font-weight:500;font-size:15px}
@@ -105,6 +105,7 @@ p{margin:0}
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .theme .sun{display:block} :root:not([data-theme="light"]) .theme .moon{display:none} }
 :root[data-theme="dark"] .theme .sun{display:block} :root[data-theme="dark"] .theme .moon{display:none}
 @media (max-width: 800px){ .menu a:not(.btn){display:none} .menu{gap:10px} }
+@media (max-width: 440px){ .menu .btn{display:none} }
 
 /* abertura: a banda verde-azulada das capturas da loja, em cor sólida */
 .hero{background:var(--banda);color:var(--banda-ink);overflow:hidden}
@@ -130,7 +131,7 @@ section{padding-block:100px}
 @media (max-width: 820px){ .sec-head{grid-template-columns:1fr;gap:14px;margin-bottom:28px} section{padding-block:72px} }
 
 /* galeria: as 7 telas reais, uma ao lado da outra */
-.galeria{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 20px 22px;margin-inline:-20px;scrollbar-width:thin}
+.galeria{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:20px;padding:6px 20px 22px;margin-inline:-20px;scrollbar-width:thin}
 .galeria figure{margin:0;flex:0 0 240px;scroll-snap-align:start}
 .galeria .quadro{border-radius:26px;padding:7px;background:#0C1012;box-shadow:var(--shadow)}
 .galeria img{border-radius:20px}
@@ -215,7 +216,7 @@ footer a{color:var(--muted)}
         <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></svg>
         <svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.3"/><path d="M12 2.5v2.4M12 19v2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2.5 12h2.4M19 12h2.4M4.9 19l1.7-1.7M17.4 6.6l1.7-1.7"/></svg>
       </button>
-      <a class="btn btn-accent" href="#instalar">Baixar grátis</a>
+      <a class="btn btn-accent" data-cta href="#instalar">Baixar grátis</a>
     </nav>
   </div>
 </header>
@@ -228,10 +229,10 @@ footer a{color:var(--muted)}
       <h1 style="margin-top:16px">Abra o PDF e leia. Só isso.</h1>
       <p class="lead">Busca, índice, favoritos e modo escuro, sem anúncios, sem cadastro e sem pedir nenhuma permissão. Seus documentos ficam no seu celular e não vão para lugar nenhum.</p>
       <div class="acoes">
-        <a class="btn btn-claro" href="#instalar">Baixar grátis</a>
+        <a class="btn btn-claro" data-cta href="#instalar">Baixar grátis</a>
         <a class="btn btn-contorno" href="#telas">Ver as telas</a>
       </div>
-      <ul class="selos" aria-label="Destaques"><li>Grátis</li><li>Sem anúncios</li><li>Zero permissões</li><li>Funciona offline</li></ul>
+      <ul class="selos" aria-label="Destaques"><li>Grátis</li><li>Sem anúncios</li><li>Zero permissões</li><li>Funciona sem internet</li></ul>
     </div>
     <div class="fone">
       <picture><source type="image/webp" srcset="img/02-leitura.webp"><img src="img/02-leitura.jpg" width="540" height="960" alt="Leitor de Bolso com um PDF aberto em rolagem contínua, com as barras de página e zoom"></picture>
@@ -306,7 +307,7 @@ footer a{color:var(--muted)}
   <div class="wrap">
     <div class="sec-head">
       <div><span class="eyebrow">Instalar</span><h2>Instale de graça.</h2></div>
-      <p>No Android, o app vira o "Abrir com" padrão. No iPhone e no computador, ele roda pelo navegador e continua lendo offline depois de instalado.</p>
+      <p>No Android, o app vira o "Abrir com" padrão. No iPhone e no computador, ele roda pelo navegador e, depois de instalado, abre sem internet.</p>
     </div>
     <div class="plats">
       <div class="plat">
@@ -318,7 +319,7 @@ footer a{color:var(--muted)}
       <div class="plat">
         <span class="status breve" data-status="web">Em breve</span>
         <h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg>iPhone</h3>
-        <ol><li>Abra o endereço do app no Safari.</li><li>Toque em Compartilhar → <b>Adicionar à Tela de Início</b>.</li><li>O ícone fica junto dos outros apps e lê offline.</li></ol>
+        <ol><li>Abra o endereço do app no Safari.</li><li>Toque em Compartilhar → <b>Adicionar à Tela de Início</b>.</li><li>O ícone fica junto dos outros apps e abre sem internet.</li></ol>
         <a class="btn" data-link="web" href="#instalar">Abrir no navegador</a>
       </div>
       <div class="plat">
@@ -338,7 +339,7 @@ footer a{color:var(--muted)}
     </div>
     <div class="faq">
       <details open><summary>É grátis mesmo?</summary><p>É. Sem anúncios e sem cadastro.</p></details>
-      <details><summary>Precisa de internet?</summary><p>Não. O app para Android nem pede permissão de internet. A versão para navegador só precisa de internet na primeira abertura; depois lê offline.</p></details>
+      <details><summary>Precisa de internet?</summary><p>Não. O app para Android nem pede permissão de internet. A versão para navegador só precisa de internet na primeira abertura; depois funciona sem ela.</p></details>
       <details><summary>Consigo grifar, anotar ou assinar o PDF?</summary><p>Ainda não. Por enquanto o Leitor de Bolso é para ler: anotações, grifos, formulários e assinatura ficam para versões futuras.</p></details>
       <details><summary>Ele guarda cópia dos meus arquivos?</summary><p>Guarda uma cópia dos últimos 8 PDFs abertos, só no armazenamento privado do app, para a lista de recentes. Cada item tem um ×, "Limpar lista" apaga tudo, e desinstalar o app também.</p></details>
       <details><summary>Abre PDF com senha?</summary><p>Abre. O app pede a senha, avisa se estiver errada e não guarda a senha em lugar nenhum.</p></details>
@@ -350,6 +351,7 @@ footer a{color:var(--muted)}
 <footer>
   <div class="wrap">
     <span>Leitor de Bolso · <a href="privacidade.html">Política de privacidade</a></span>
+    <span id="contatos"><a data-link="whatsapp" href="#instalar">WhatsApp</a> · <a data-link="email" href="#instalar">E-mail</a> · <a data-link="instagram" href="#instalar">Instagram</a></span>
     <span>Um app da <a href="../index.html">Tapajós Tech</a> · <a href="../balcao/index.html">Conheça também o Balcão PDV</a></span>
   </div>
 </footer>
@@ -360,7 +362,9 @@ var CONFIG = {
   play: "",       // link do app na Google Play (quando for publicado)
   apk: "",        // link direto do leitor-de-bolso.apk, se quiser distribuir o APK pelo site
   web: "",        // endereço do app no navegador (PWA). Ex.: "https://pablo107564-ops.github.io/leitor-pdf/"
-  whatsapp: "93 98121-2924"   // para pedir o app enquanto não há link
+  whatsapp: "93 98121-2924",  // para pedir o app enquanto não há link
+  email: "",                   // Ex.: "contato@tapajostech.com.br"
+  instagram: ""                // só o nome, sem @. Ex.: "tapajostech"
 };
 /* ================================================================== */
 (function(){
@@ -385,6 +389,22 @@ var CONFIG = {
     if(!CONFIG.web){ a.hidden = true; return; }
     a.href = CONFIG.web; a.target = "_blank"; a.rel = "noopener";
   });
+  // sem link de download ainda, o botão do topo não promete "baixar"
+  if(!CONFIG.play && !CONFIG.apk) document.querySelectorAll("[data-cta]").forEach(function(a){ a.textContent = "Quero o app"; });
+  var contatos = {
+    whatsapp: zap ? "https://wa.me/" + zap + "?text=" + encodeURIComponent("Olá! Vim pelo site do Leitor de Bolso.") : "",
+    email: CONFIG.email ? "mailto:" + CONFIG.email : "",
+    instagram: CONFIG.instagram ? "https://instagram.com/" + encodeURIComponent(CONFIG.instagram.replace(/^@/, "")) : ""
+  };
+  var rodape = document.getElementById("contatos");
+  var visiveis = Array.prototype.filter.call(rodape.querySelectorAll("a"), function(a){
+    var url = contatos[a.getAttribute("data-link")];
+    if(url){ a.href = url; if(/^https?:/.test(url)){ a.target = "_blank"; a.rel = "noopener"; } }
+    return !!url;
+  });
+  rodape.textContent = "";
+  visiveis.forEach(function(a, i){ if(i) rodape.appendChild(document.createTextNode(" · ")); rodape.appendChild(a); });
+  if(!visiveis.length) rodape.hidden = true;
   document.querySelectorAll('[data-status="web"]').forEach(function(s){ if(CONFIG.web){ s.textContent = "Disponível"; s.classList.remove("breve"); } });
 })();
 </script>

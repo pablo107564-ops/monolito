@@ -82,7 +82,7 @@ p{margin:0}
 .btn-agua:hover{background:var(--agua-strong);border-color:var(--agua-strong)}
 
 /* logotipo: o sol se pondo na linha do rio, que desce e faz o T */
-.logo{display:flex;align-items:center;gap:11px;color:var(--text);text-decoration:none;font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:-.02em}
+.logo{display:flex;align-items:center;gap:11px;white-space:nowrap;color:var(--text);text-decoration:none;font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:-.02em}
 .logo svg{flex:none}
 .logo-bg{fill:var(--agua)} .logo-sol{fill:var(--sol)} .logo-rio{stroke:var(--agua-contrast)}
 
@@ -98,6 +98,7 @@ p{margin:0}
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .theme .sun{display:block} :root:not([data-theme="light"]) .theme .moon{display:none} }
 :root[data-theme="dark"] .theme .sun{display:block} :root[data-theme="dark"] .theme .moon{display:none}
 @media (max-width: 760px){ .menu a:not(.btn){display:none} .menu{gap:10px} }
+@media (max-width: 440px){ .menu .btn{display:none} }
 
 /* abertura */
 .hero{padding-block:72px 96px;overflow:hidden}
@@ -196,7 +197,12 @@ footer a:hover{color:var(--text);text-decoration:underline}
 footer .copy{margin-top:12px;font-size:14px;color:var(--muted)}
 @media (max-width: 700px){ footer .wrap{grid-template-columns:1fr 1fr} footer .wrap > div:first-child{grid-column:1/-1} }
 
-.zap{position:fixed;right:18px;bottom:18px;z-index:30;width:58px;height:58px;border-radius:50%;background:#138A45;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.25)}
+.zap{position:fixed;right:18px;bottom:18px;z-index:30;width:58px;height:58px;border-radius:50%;background:#138A45;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.25);opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .2s, transform .2s}
+.zap.on{opacity:1;transform:none;pointer-events:auto}
+.zap[hidden]{display:none}
+.redes{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;font-size:15px}
+.redes a{color:inherit;opacity:.9}
+.redes:not(:has(a:not([hidden]))){display:none}
 @media (prefers-reduced-motion: reduce){ *{animation:none!important;transition:none!important;scroll-behavior:auto!important} }
 </style>
 </head>
@@ -344,6 +350,7 @@ footer .copy{margin-top:12px;font-size:14px;color:var(--muted)}
         <a class="btn" data-link="whatsapp" href="#contato">Chamar no WhatsApp</a>
         <span class="num" data-numero></span>
         <a class="btn" data-link="email" href="#contato" style="background:transparent;color:inherit;border-color:currentColor">Mandar e-mail</a>
+        <div class="redes"><a data-link="instagram" href="#contato">Instagram</a></div>
       </div>
     </div>
   </div>
@@ -358,11 +365,11 @@ footer .copy{margin-top:12px;font-size:14px;color:var(--muted)}
     </div>
     <div>
       <h4>Apps</h4>
-      <ul><li><a href="balcao/index.html">Balcão PDV</a></li><li><a href="leitor-de-bolso/index.html">Leitor de Bolso</a></li></ul>
+      <ul><li><a href="balcao/index.html">Balcão PDV</a></li><li><a href="leitor-de-bolso/index.html">Leitor de Bolso</a></li><li><a href="leitor-de-bolso/privacidade.html">Privacidade do Leitor</a></li></ul>
     </div>
     <div>
       <h4>Contato</h4>
-      <ul><li><a data-link="whatsapp" href="#contato">WhatsApp</a></li><li><a data-link="email" href="#contato">E-mail</a></li><li><a href="leitor-de-bolso/privacidade.html">Privacidade do Leitor</a></li></ul>
+      <ul><li><a data-link="whatsapp" href="#contato">WhatsApp</a></li><li><a data-link="email" href="#contato">E-mail</a></li><li><a data-link="instagram" href="#contato">Instagram</a></li></ul>
     </div>
   </div>
 </footer>
@@ -375,7 +382,8 @@ footer .copy{margin-top:12px;font-size:14px;color:var(--muted)}
 /* ===== Configuração do site: preencha e publique de novo ===== */
 var CONFIG = {
   whatsapp: "93 98121-2924",   // com DDD. Ex.: "11 99999-8888" (o 55 do Brasil entra sozinho)
-  email: ""                    // Ex.: "contato@tapajos.tech"
+  email: "",                   // Ex.: "contato@tapajostech.com.br"
+  instagram: ""                // só o nome, sem @. Ex.: "tapajostech"
 };
 /* ============================================================= */
 (function(){
@@ -395,7 +403,8 @@ var CONFIG = {
   var destinos = {
     "whatsapp": wa("Olá! Vim pelo site da Tapajós Tech."),
     "whatsapp-ideia": wa("Olá! Tenho uma ideia de app / quero ser avisado do próximo app da Tapajós Tech."),
-    "email": CONFIG.email ? "mailto:" + CONFIG.email : ""
+    "email": CONFIG.email ? "mailto:" + CONFIG.email : "",
+    "instagram": CONFIG.instagram ? "https://instagram.com/" + encodeURIComponent(CONFIG.instagram.replace(/^@/, "")) : ""
   };
   document.querySelectorAll("[data-link]").forEach(function(a){
     var url = destinos[a.getAttribute("data-link")];
@@ -405,6 +414,10 @@ var CONFIG = {
   });
   var bonito = num.length === 11 ? "(" + num.slice(0,2) + ") " + num.slice(2,7) + "-" + num.slice(7) : num.length === 10 ? "(" + num.slice(0,2) + ") " + num.slice(2,6) + "-" + num.slice(6) : "";
   document.querySelectorAll("[data-numero]").forEach(function(s){ if(bonito) s.textContent = "WhatsApp " + bonito; else s.hidden = true; });
+  // o botão flutuante do WhatsApp só aparece depois da abertura, para não cobrir as fotos
+  var flutua = document.querySelector(".zap");
+  var mostra = function(){ flutua.classList.toggle("on", scrollY > innerHeight * 0.8); };
+  addEventListener("scroll", mostra, {passive:true}); mostra();
   document.querySelectorAll("[data-numero-prova]").forEach(function(s){ if(bonito) s.textContent = "WhatsApp " + bonito; else s.hidden = true; });
 })();
 </script>
