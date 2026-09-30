@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tapajós Tech — apps feitos no Pará para o dia a dia de quem trabalha</title>
+<meta name="description" content="A Tapajós Tech faz apps simples, que funcionam sem internet e respeitam os seus dados: o Balcão PDV, sistema de caixa para o comércio, e o Leitor de Bolso, leitor de PDF gratuito.">
+<meta property="og:title" content="Tapajós Tech — apps para o dia a dia de quem trabalha">
+<meta property="og:description" content="Balcão PDV, o caixa da sua loja. Leitor de Bolso, PDF simples e privado. Feitos no Pará.">
+<meta property="og:image" content="https://pablo107564-ops.github.io/tapajos-tech/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://pablo107564-ops.github.io/tapajos-tech/">
+<link rel="canonical" href="https://pablo107564-ops.github.io/tapajos-tech/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F4F6F5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D1719" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230B5E66'/%3E%3Ccircle cx='28' cy='12' r='3.4' fill='%23E0873A'/%3E%3Cpath d='M10 15.5h20' stroke='white' stroke-width='3.2' stroke-linecap='round'/%3E%3Cpath d='M20 15.5c0 4.5-4.6 6-4.6 10.3S20 30.6 20 33' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Tapajós Tech: água do rio (verde-azulado profundo), fundo claro e frio, um pôr do sol só no logotipo.
+   Títulos em Bricolage Grotesque, texto em IBM Plex Sans (a mesma do Balcão). */
+:root{
+  color-scheme: light;
+  --bg:#F4F6F5; --surface:#FFFFFF; --surface-2:#EAF0EF;
+  --text:#0F1D1F; --text-dim:#4E6063; --muted:#5E6F72;
+  --border:#DCE3E2; --border-strong:#C5D0CF;
+  --agua:#0B5E66; --agua-strong:#084A51; --agua-soft:#DCEDEC; --agua-contrast:#FFFFFF;
+  --sol:#E0873A;
+  --balcao:#0E7A57; --balcao-strong:#0B5F44; --balcao-soft:#E3F3EC;
+  --leitor:#1F6F6B; --leitor-soft:#DDEDEB;
+  --shadow: 0 1px 2px rgba(12,30,32,.05), 0 10px 30px rgba(12,30,32,.08);
+  --shadow-lg: 0 2px 6px rgba(12,30,32,.06), 0 30px 70px rgba(12,30,32,.16);
+  --display:'Bricolage Grotesque','IBM Plex Sans',system-ui,sans-serif;
+  --ui:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --bg:#0D1719; --surface:#142226; --surface-2:#18292D;
+    --text:#E7EEEE; --text-dim:#A9BBBD; --muted:#93A6A8;
+    --border:#22363A; --border-strong:#2E464B;
+    --agua:#5CC3C0; --agua-strong:#7DD3D0; --agua-soft:#153437; --agua-contrast:#08191B;
+    --balcao:#3ED397; --balcao-strong:#3ED397; --balcao-soft:#17332A;
+    --leitor:#4FB8AE; --leitor-soft:#15302E;
+    --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 30px rgba(0,0,0,.35);
+    --shadow-lg: 0 2px 6px rgba(0,0,0,.4), 0 30px 70px rgba(0,0,0,.5);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --bg:#0D1719; --surface:#142226; --surface-2:#18292D;
+  --text:#E7EEEE; --text-dim:#A9BBBD; --muted:#93A6A8;
+  --border:#22363A; --border-strong:#2E464B;
+  --agua:#5CC3C0; --agua-strong:#7DD3D0; --agua-soft:#153437; --agua-contrast:#08191B;
+  --balcao:#3ED397; --balcao-strong:#3ED397; --balcao-soft:#17332A;
+  --leitor:#4FB8AE; --leitor-soft:#15302E;
+  --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 30px rgba(0,0,0,.35);
+  --shadow-lg: 0 2px 6px rgba(0,0,0,.4), 0 30px 70px rgba(0,0,0,.5);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--ui);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block;height:auto}
+a{color:var(--agua-strong)}
+h1,h2,h3{margin:0;font-family:var(--display);line-height:1.04;text-wrap:balance;letter-spacing:-.025em;font-weight:700}
+p{margin:0}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:20px}
+:focus-visible{outline:2.5px solid var(--agua);outline-offset:3px;border-radius:6px}
+[hidden]{display:none!important}
+.eyebrow{font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--agua-strong)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 22px;border-radius:12px;border:1.5px solid var(--border-strong);background:var(--surface);color:var(--text);font-weight:600;font-size:16px;text-decoration:none;white-space:nowrap;transition:border-color .12s, background .12s, transform .12s}
+.btn:hover{border-color:var(--text-dim)}
+.btn:active{transform:translateY(1px)}
+.btn-agua{background:var(--agua);border-color:var(--agua);color:var(--agua-contrast)}
+.btn-agua:hover{background:var(--agua-strong);border-color:var(--agua-strong)}
+
+/* logotipo: o sol se pondo na linha do rio, que desce e faz o T */
+.logo{display:flex;align-items:center;gap:11px;color:var(--text);text-decoration:none;font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:-.02em}
+.logo svg{flex:none}
+.logo-bg{fill:var(--agua)} .logo-sol{fill:var(--sol)} .logo-rio{stroke:var(--agua-contrast)}
+
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--bg) 88%, transparent);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:18px;height:68px}
+.menu{display:flex;gap:26px;margin-left:auto;align-items:center}
+.menu a:not(.btn){color:var(--text-dim);text-decoration:none;font-weight:500;font-size:15px}
+.menu a:not(.btn):hover{color:var(--text)}
+.menu .btn{padding:10px 16px;font-size:15px}
+.theme{width:40px;height:40px;border-radius:10px;border:1px solid var(--border);background:var(--surface);display:flex;align-items:center;justify-content:center;color:var(--text-dim);cursor:pointer}
+.theme:hover{color:var(--text)}
+.theme .sun{display:none}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .theme .sun{display:block} :root:not([data-theme="light"]) .theme .moon{display:none} }
+:root[data-theme="dark"] .theme .sun{display:block} :root[data-theme="dark"] .theme .moon{display:none}
+@media (max-width: 760px){ .menu a:not(.btn){display:none} .menu{gap:10px} }
+
+/* abertura */
+.hero{padding-block:72px 96px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:64px;align-items:center}
+.hero h1{font-size:clamp(42px,5.2vw,72px);font-weight:800;letter-spacing:-.022em;line-height:1}
+.hero h1 em{font-style:normal;color:var(--agua-strong)}
+.hero .lead{font-size:clamp(18px,1.6vw,21px);color:var(--text-dim);margin-top:24px;max-width:31em}
+.hero .acoes{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.vitrine{position:relative;padding:0 0 56px 0}
+.tela{border-radius:14px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-lg);background:var(--surface)}
+.fone{position:absolute;right:-6px;bottom:0;width:31%;min-width:130px;border-radius:30px;padding:7px;background:#0C1112;box-shadow:var(--shadow-lg)}
+.fone img{border-radius:23px}
+.so-claro{display:block} .so-escuro{display:none}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .so-claro{display:none} :root:not([data-theme="light"]) .so-escuro{display:block} }
+:root[data-theme="dark"] .so-claro{display:none} :root[data-theme="dark"] .so-escuro{display:block}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:14px;font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.legenda span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:7px;vertical-align:1px}
+.legenda .b::before{background:var(--balcao)} .legenda .l::before{background:var(--leitor)}
+@media (max-width: 960px){ .hero .wrap{grid-template-columns:1fr;gap:48px} .hero{padding-block:40px 72px} }
+
+section{padding-block:104px}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:48px}
+.sec-head h2{font-size:clamp(34px,4.2vw,56px);font-weight:800;letter-spacing:-.02em}
+.sec-head p{color:var(--text-dim);font-size:18px;max-width:32em}
+.sec-head .eyebrow{display:block;margin-bottom:14px}
+@media (max-width: 820px){ .sec-head{grid-template-columns:1fr;gap:16px;margin-bottom:32px} section{padding-block:72px} }
+
+/* os apps */
+.apps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.app{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--border);border-radius:22px;overflow:hidden;text-decoration:none;color:inherit;transition:transform .18s ease, box-shadow .18s ease, border-color .18s}
+.app:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--border-strong)}
+.app-txt{padding:30px 30px 26px;display:flex;flex-direction:column;gap:14px;flex:1}
+.app-id{display:flex;align-items:center;gap:13px}
+.app-id h3{font-size:30px;font-weight:800;letter-spacing:-.03em}
+.app-id .tipo{display:block;font-family:var(--mono);font-size:12.5px;color:var(--muted);letter-spacing:.02em;margin-top:3px}
+.app p{color:var(--text-dim);font-size:16.5px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-size:13.5px;font-weight:600;padding:5px 12px;border-radius:99px;background:var(--surface-2);color:var(--text-dim)}
+.chip.forte{background:var(--c-soft);color:var(--c-strong)}
+.ir{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--c-strong);margin-top:auto;padding-top:6px}
+.ir svg{transition:transform .18s}
+.app:hover .ir svg{transform:translateX(4px)}
+.app-img{background:var(--c-soft);padding:28px 30px 0;display:flex;justify-content:center;align-items:flex-start;height:300px;overflow:hidden;border-top:1px solid var(--border)}
+@media (max-width: 560px){ .app-img{height:230px;padding:20px 18px 0} }
+.app-img .tela{border-radius:12px 12px 0 0;border-bottom:0;box-shadow:var(--shadow)}
+.app-img .fone2{width:46%;max-width:210px;border-radius:26px 26px 0 0;padding:7px 7px 0;background:#0C1112}
+.app-img .fone2 img{border-radius:20px 20px 0 0}
+.app.balcao{--c-soft:var(--balcao-soft);--c-strong:var(--balcao-strong)}
+.app.leitor{--c-soft:var(--leitor-soft);--c-strong:var(--leitor)}
+.mk-b{width:48px;height:48px;border-radius:12px;background:var(--balcao);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:24px;flex:none}
+:root[data-theme="dark"] .mk-b{color:#08150F}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .mk-b{color:#08150F} }
+.mk-l{width:48px;height:48px;border-radius:12px;background:var(--leitor-soft);display:flex;align-items:center;justify-content:center;flex:none;color:var(--leitor)}
+.proximo{grid-column:1 / -1;display:flex;align-items:center;gap:22px;padding:24px 28px;border:1.5px dashed var(--border-strong);border-radius:22px;color:var(--text-dim)}
+.proximo .mk{width:48px;height:48px;border-radius:12px;border:1.5px dashed var(--border-strong);display:flex;align-items:center;justify-content:center;flex:none;color:var(--muted)}
+.proximo b{color:var(--text);font-family:var(--display);font-size:20px;display:block;letter-spacing:-.01em}
+.proximo .btn{margin-left:auto}
+@media (max-width: 900px){ .apps{grid-template-columns:1fr} .proximo{flex-wrap:wrap} .proximo .btn{margin-left:0} }
+
+/* como fazemos */
+.como{background:var(--surface);border-block:1px solid var(--border)}
+.principios{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.pr{padding:4px 34px 4px 0;display:flex;flex-direction:column;gap:12px}
+.pr + .pr{padding-left:34px;border-left:1px solid var(--border)}
+.pr .ic{width:48px;height:48px;border-radius:14px;background:var(--agua-soft);color:var(--agua-strong);display:flex;align-items:center;justify-content:center}
+.pr h3{font-size:24px;font-weight:700}
+.pr p{color:var(--text-dim);font-size:16px}
+.pr .prova{font-family:var(--mono);font-size:13px;color:var(--muted);border-top:1px dashed var(--border-strong);padding-top:12px;margin-top:4px}
+@media (max-width: 900px){ .principios{grid-template-columns:1fr;gap:34px} .pr, .pr + .pr{padding:0;border-left:0} }
+
+/* sobre */
+.sobre{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:start}
+.sobre h2{font-size:clamp(34px,4.2vw,56px);font-weight:800;letter-spacing:-.02em;margin-top:14px}
+.sobre .txt{display:flex;flex-direction:column;gap:18px;color:var(--text-dim);font-size:18px}
+.sobre .txt b{color:var(--text)}
+@media (max-width: 900px){ .sobre{grid-template-columns:1fr;gap:24px} }
+
+/* contato */
+.contato{padding-block:0 104px}
+.contato-box{background:var(--agua);color:var(--agua-contrast);border-radius:26px;padding:60px 56px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:40px;align-items:center}
+.contato-box h2{font-size:clamp(34px,4.4vw,58px);font-weight:800;letter-spacing:-.02em}
+.contato-box p{margin-top:14px;font-size:18px;opacity:.88}
+.contato-box .acoes{display:flex;flex-direction:column;gap:12px}
+.contato-box .btn{background:var(--agua-contrast);border-color:var(--agua-contrast);color:var(--agua-strong)}
+:root[data-theme="dark"] .contato-box .btn{color:var(--bg)}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .contato-box .btn{color:var(--bg)} }
+.contato-box .num{font-family:var(--mono);font-size:15px;text-align:center;opacity:.85}
+@media (max-width: 820px){ .contato-box{grid-template-columns:1fr;padding:40px 24px} }
+
+footer{border-top:1px solid var(--border);padding-block:40px;color:var(--text-dim);font-size:15px}
+footer .wrap{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(2,minmax(0,.8fr));gap:32px}
+footer h4{margin:0 0 10px;font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+footer a{color:var(--text-dim);text-decoration:none}
+footer a:hover{color:var(--text);text-decoration:underline}
+footer .copy{margin-top:12px;font-size:14px;color:var(--muted)}
+@media (max-width: 700px){ footer .wrap{grid-template-columns:1fr 1fr} footer .wrap > div:first-child{grid-column:1/-1} }
+
+.zap{position:fixed;right:18px;bottom:18px;z-index:30;width:58px;height:58px;border-radius:50%;background:#138A45;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.25)}
+@media (prefers-reduced-motion: reduce){ *{animation:none!important;transition:none!important;scroll-behavior:auto!important} }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="Tapajós Tech, início">
+      <svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true"><rect class="logo-bg" width="40" height="40" rx="11"/><circle class="logo-sol" cx="28" cy="12" r="3.4"/><path class="logo-rio" d="M10 15.5h20" stroke-width="3.2" stroke-linecap="round"/><path class="logo-rio" d="M20 15.5c0 4.5-4.6 6-4.6 10.3S20 30.6 20 33" fill="none" stroke-width="3.2" stroke-linecap="round"/></svg>
+      Tapajós Tech</a>
+    <nav class="menu" aria-label="Principal">
+      <a href="#apps">Apps</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+      <button class="theme" type="button" id="tema" aria-label="Trocar entre tema claro e escuro">
+        <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></svg>
+        <svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.3"/><path d="M12 2.5v2.4M12 19v2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2.5 12h2.4M19 12h2.4M4.9 19l1.7-1.7M17.4 6.6l1.7-1.7"/></svg>
+      </button>
+      <a class="btn btn-agua" href="#apps">Ver os apps</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Tapajós Tech · apps feitos no Pará</p>
+      <h1 style="margin-top:18px">Apps para o dia a dia de <em>quem trabalha.</em></h1>
+      <p class="lead">Fazemos programas simples, que continuam funcionando quando a internet cai e deixam os seus dados com você. Um para o caixa da sua loja, outro para ler PDF no celular, e mais vindo por aí.</p>
+      <div class="acoes">
+        <a class="btn btn-agua" href="#apps">Conhecer os apps</a>
+        <a class="btn" data-link="whatsapp" href="#contato">
+          <svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2.1 7L3.2 29l6.4-1.8c2 1.1 4.2 1.6 6.4 1.6 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2 0-3.9-.5-5.6-1.5l-.4-.2-3.8 1 1-3.7-.3-.4c-1.1-1.7-1.7-3.7-1.7-5.8C5.2 10 10 5.3 16 5.3S26.8 10 26.8 15.8 22 26.4 16 26.4z"/></svg>
+          Falar no WhatsApp</a>
+      </div>
+    </div>
+    <div>
+      <div class="vitrine">
+        <div class="tela">
+          <picture class="so-claro"><source type="image/webp" srcset="balcao/img/venda-claro.webp"><img src="balcao/img/venda-claro.jpg" width="1600" height="1025" alt="Balcão PDV: a tela de venda com a lista de produtos e o carrinho"></picture>
+          <picture class="so-escuro"><source type="image/webp" srcset="balcao/img/venda-escuro.webp"><img src="balcao/img/venda-escuro.jpg" width="1600" height="1025" alt="Balcão PDV: a tela de venda no tema escuro" loading="lazy"></picture>
+        </div>
+        <div class="fone">
+          <picture class="so-claro"><source type="image/webp" srcset="leitor-de-bolso/img/01-inicio.webp"><img src="leitor-de-bolso/img/01-inicio.jpg" width="540" height="960" alt="Leitor de Bolso: a tela inicial com os PDFs recentes"></picture>
+          <picture class="so-escuro"><source type="image/webp" srcset="leitor-de-bolso/img/06-escuro.webp"><img src="leitor-de-bolso/img/06-escuro.jpg" width="540" height="960" alt="Leitor de Bolso: um PDF aberto no modo escuro" loading="lazy"></picture>
+        </div>
+      </div>
+      <div class="legenda"><span class="b">Balcão PDV, no computador</span><span class="l">Leitor de Bolso, no celular</span></div>
+    </div>
+  </div>
+</div>
+
+<section id="apps" style="padding-top:24px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow">Os apps</span><h2>Feitos para resolver uma coisa, e bem.</h2></div>
+      <p>Cada app tem a sua página, com fotos das telas de verdade, o que ele faz e como começar.</p>
+    </div>
+    <div class="apps" id="listaApps">
+      <a class="app balcao" href="balcao/index.html">
+        <div class="app-txt">
+          <div class="app-id"><span class="mk-b" aria-hidden="true">B</span><div><h3>Balcão PDV</h3><span class="tipo">Sistema de frente de caixa</span></div></div>
+          <p>O caixa da sua loja: vende rápido, controla o estoque, emite a NFC-e e continua vendendo quando a internet cai. Para mercado, padaria, conveniência, bar e loja de roupas.</p>
+          <div class="chips"><span class="chip forte">15 dias grátis</span><span class="chip">A partir de R$ 119,90/mês</span><span class="chip">Windows, Linux e Mac</span></div>
+          <span class="ir">Conhecer o Balcão <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+        <div class="app-img">
+          <div class="tela" style="width:100%">
+            <picture class="so-claro"><source type="image/webp" srcset="balcao/img/painel-claro.webp"><img src="balcao/img/painel-claro.jpg" width="1600" height="1025" alt="Balcão PDV: o painel do dia com vendas, lucro e mais vendidos" loading="lazy"></picture>
+            <picture class="so-escuro"><source type="image/webp" srcset="balcao/img/painel-escuro.webp"><img src="balcao/img/painel-escuro.jpg" width="1600" height="1025" alt="Balcão PDV: o painel do dia no tema escuro" loading="lazy"></picture>
+          </div>
+        </div>
+      </a>
+      <a class="app leitor" href="leitor-de-bolso/index.html">
+        <div class="app-txt">
+          <div class="app-id"><span class="mk-l" aria-hidden="true"><svg width="24" height="28" viewBox="0 0 24 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M2 2h14l6 6v18H2z"/><path d="M16 2v6h6" fill="currentColor"/><path d="M6.5 13h11M6.5 17h11M6.5 21h6.5" stroke-linecap="round" opacity=".6"/></svg></span><div><h3>Leitor de Bolso</h3><span class="tipo">Leitor de PDF</span></div></div>
+          <p>Abra o PDF e leia, sem anúncio e sem cadastro. Busca sem acento, índice, favoritos e modo escuro. Não pede nenhuma permissão e nada sai do seu celular.</p>
+          <div class="chips"><span class="chip forte">Grátis</span><span class="chip">Sem anúncios</span><span class="chip">Android e navegador</span></div>
+          <span class="ir">Conhecer o Leitor <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+        <div class="app-img">
+          <div class="fone2">
+            <picture><source type="image/webp" srcset="leitor-de-bolso/img/03-busca.webp"><img src="leitor-de-bolso/img/03-busca.jpg" width="540" height="960" alt="Leitor de Bolso: busca no texto com a palavra destacada na página" loading="lazy" style="aspect-ratio:540/620;object-fit:cover;object-position:top"></picture>
+          </div>
+        </div>
+      </a>
+      <div class="proximo">
+        <span class="mk" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        <div><b>O próximo app está sendo feito</b>Quer ser avisado quando sair, ou tem uma ideia do que falta no seu dia a dia? Conte pra gente.</div>
+        <a class="btn" data-link="whatsapp-ideia" href="#contato">Mandar uma ideia</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="como">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow">Como fazemos</span><h2>Três regras que todo app nosso segue.</h2></div>
+      <p>Não são promessas de marketing: é o que os dois apps já fazem hoje.</p>
+    </div>
+    <div class="principios">
+      <div class="pr">
+        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 9a14 14 0 0 1 19 0M5.5 12.5a9.5 9.5 0 0 1 13 0M8.8 16a5 5 0 0 1 6.4 0M12 19.5v.01"/><path d="M3 3l18 18"/></svg></span>
+        <h3>Funciona sem internet</h3>
+        <p>A internet cai, o trabalho continua. O app guarda o que precisa no próprio aparelho.</p>
+        <p class="prova">Balcão: vende por até 30 dias sem internet. Leitor: nem pede internet.</p>
+      </div>
+      <div class="pr">
+        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg></span>
+        <h3>Seus dados ficam com você</h3>
+        <p>Nada de mandar as suas vendas ou os seus documentos para um servidor que você não conhece.</p>
+        <p class="prova">Balcão: as vendas ficam no computador da loja. Leitor: o PDF não sai do celular.</p>
+      </div>
+      <div class="pr">
+        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h16v10H9l-5 4v-14Z"/><path d="M8 9.5h8M8 12.5h5"/></svg></span>
+        <h3>Gente de verdade no suporte</h3>
+        <p>Dúvida, problema ou ideia: você fala direto com quem faz o app, pelo WhatsApp.</p>
+        <p class="prova" data-numero-prova>WhatsApp (93) 98121-2924</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="wrap sobre">
+    <div><span class="eyebrow">Sobre</span><h2>O nome vem do rio. O jeito de fazer, também.</h2></div>
+    <div class="txt">
+      <p>A <b>Tapajós Tech</b> nasceu no Pará e leva o nome do rio Tapajós: água clara, que corre sem pressa e chega longe.</p>
+      <p>É assim que tentamos fazer software. Apps pequenos, bem acabados, que resolvem um problema de verdade do comércio e do dia a dia, sem anúncio, sem cadastro desnecessário e sem depender de uma internet que nem sempre está lá.</p>
+      <p>Começamos pelo <b>Balcão PDV</b>, para o caixa das lojas, e pelo <b>Leitor de Bolso</b>, para quem só quer abrir um PDF e ler. Os próximos seguem as mesmas regras.</p>
+    </div>
+  </div>
+</section>
+
+<div class="contato" id="contato">
+  <div class="wrap">
+    <div class="contato-box">
+      <div>
+        <h2>Vamos conversar?</h2>
+        <p>Quer testar o Balcão na sua loja, pedir o Leitor de Bolso ou sugerir um app? Chame no WhatsApp.</p>
+      </div>
+      <div class="acoes">
+        <a class="btn" data-link="whatsapp" href="#contato">Chamar no WhatsApp</a>
+        <span class="num" data-numero></span>
+        <a class="btn" data-link="email" href="#contato" style="background:transparent;color:inherit;border-color:currentColor">Mandar e-mail</a>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="logo" href="#" style="font-size:18px"><svg width="30" height="30" viewBox="0 0 40 40" aria-hidden="true"><rect class="logo-bg" width="40" height="40" rx="11"/><circle class="logo-sol" cx="28" cy="12" r="3.4"/><path class="logo-rio" d="M10 15.5h20" stroke-width="3.2" stroke-linecap="round"/><path class="logo-rio" d="M20 15.5c0 4.5-4.6 6-4.6 10.3S20 30.6 20 33" fill="none" stroke-width="3.2" stroke-linecap="round"/></svg>Tapajós Tech</a>
+      <p class="copy">Apps feitos no Pará para o dia a dia de quem trabalha. © <span id="ano">2026</span> Tapajós Tech.</p>
+    </div>
+    <div>
+      <h4>Apps</h4>
+      <ul><li><a href="balcao/index.html">Balcão PDV</a></li><li><a href="leitor-de-bolso/index.html">Leitor de Bolso</a></li></ul>
+    </div>
+    <div>
+      <h4>Contato</h4>
+      <ul><li><a data-link="whatsapp" href="#contato">WhatsApp</a></li><li><a data-link="email" href="#contato">E-mail</a></li><li><a href="leitor-de-bolso/privacidade.html">Privacidade do Leitor</a></li></ul>
+    </div>
+  </div>
+</footer>
+
+<a class="zap" data-link="whatsapp" href="#contato" aria-label="Falar no WhatsApp" hidden>
+  <svg width="30" height="30" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2.1 7L3.2 29l6.4-1.8c2 1.1 4.2 1.6 6.4 1.6 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2 0-3.9-.5-5.6-1.5l-.4-.2-3.8 1 1-3.7-.3-.4c-1.1-1.7-1.7-3.7-1.7-5.8C5.2 10 10 5.3 16 5.3S26.8 10 26.8 15.8 22 26.4 16 26.4zm5.9-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.8 5 .8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+</a>
+
+<script>
+/* ===== Configuração do site: preencha e publique de novo ===== */
+var CONFIG = {
+  whatsapp: "93 98121-2924",   // com DDD. Ex.: "11 99999-8888" (o 55 do Brasil entra sozinho)
+  email: ""                    // Ex.: "contato@tapajos.tech"
+};
+/* ============================================================= */
+(function(){
+  var root = document.documentElement;
+  try { var salvo = localStorage.getItem("tt-tema"); if(salvo) root.setAttribute("data-theme", salvo); } catch(e){}
+  document.getElementById("tema").addEventListener("click", function(){
+    var escuro = root.getAttribute("data-theme") ? root.getAttribute("data-theme") === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    var novo = escuro ? "light" : "dark";
+    root.setAttribute("data-theme", novo);
+    try { localStorage.setItem("tt-tema", novo); } catch(e){}
+  });
+  document.getElementById("ano").textContent = new Date().getFullYear();
+
+  var num = CONFIG.whatsapp.replace(/\D/g, "");
+  var zap = (num.length === 10 || num.length === 11) ? "55" + num : num;
+  var wa = function(msg){ return zap ? "https://wa.me/" + zap + "?text=" + encodeURIComponent(msg) : ""; };
+  var destinos = {
+    "whatsapp": wa("Olá! Vim pelo site da Tapajós Tech."),
+    "whatsapp-ideia": wa("Olá! Tenho uma ideia de app / quero ser avisado do próximo app da Tapajós Tech."),
+    "email": CONFIG.email ? "mailto:" + CONFIG.email : ""
+  };
+  document.querySelectorAll("[data-link]").forEach(function(a){
+    var url = destinos[a.getAttribute("data-link")];
+    if(!url){ a.hidden = true; if(a.parentElement.tagName === "LI") a.parentElement.hidden = true; return; }
+    a.href = url; a.hidden = false;
+    if(/^https?:/.test(url)){ a.target = "_blank"; a.rel = "noopener"; }
+  });
+  var bonito = num.length === 11 ? "(" + num.slice(0,2) + ") " + num.slice(2,7) + "-" + num.slice(7) : num.length === 10 ? "(" + num.slice(0,2) + ") " + num.slice(2,6) + "-" + num.slice(6) : "";
+  document.querySelectorAll("[data-numero]").forEach(function(s){ if(bonito) s.textContent = "WhatsApp " + bonito; else s.hidden = true; });
+  document.querySelectorAll("[data-numero-prova]").forEach(function(s){ if(bonito) s.textContent = "WhatsApp " + bonito; else s.hidden = true; });
+})();
+</script>
+</body>
+</html>

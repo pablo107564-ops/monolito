@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pablo107564-ops.github.io/tapajos-tech/sitemap.xml
