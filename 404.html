@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Página não encontrada — Tapajós Tech</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230B5E66'/%3E%3Ccircle cx='28' cy='12' r='3.4' fill='%23E0873A'/%3E%3Cpath d='M10 15.5h20' stroke='white' stroke-width='3.2' stroke-linecap='round'/%3E%3Cpath d='M20 15.5c0 4.5-4.6 6-4.6 10.3S20 30.6 20 33' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* O GitHub Pages mostra esta página em qualquer endereço que não existe, então os links são completos. */
+:root{
+  color-scheme:light;
+  --bg:#F4F6F5; --surface:#FFFFFF; --text:#0F1D1F; --muted:#5E6F72; --border:#DCE3E2;
+  --agua:#0B5E66; --agua-contrast:#FFFFFF; --sol:#E0873A;
+  --display:"Bricolage Grotesque", system-ui, sans-serif; --sans:"IBM Plex Sans", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ color-scheme:dark; --bg:#0D1719; --surface:#142226; --text:#E7EEEE; --muted:#93A6A8; --border:#22363A; --agua:#5CC3C0; --agua-contrast:#08191B; }
+}
+:root[data-theme="dark"]{ color-scheme:dark; --bg:#0D1719; --surface:#142226; --text:#E7EEEE; --muted:#93A6A8; --border:#22363A; --agua:#5CC3C0; --agua-contrast:#08191B; }
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--text);font:17px/1.6 var(--sans);padding:40px 16px}
+main{max-width:520px;text-align:center}
+.logo-bg{fill:var(--agua)} .logo-sol{fill:var(--sol)} .logo-rio{stroke:var(--agua-contrast)}
+.cod{font-family:ui-monospace, monospace;letter-spacing:.12em;color:var(--agua);font-size:14px;margin:26px 0 8px;font-weight:600}
+h1{font-family:var(--display);font-size:clamp(30px, 7vw, 42px);line-height:1.1;letter-spacing:-.02em;margin:0}
+p{color:var(--muted);margin:14px 0 0}
+nav{display:flex;flex-direction:column;gap:10px;margin-top:30px}
+a.op{display:block;padding:14px 18px;border-radius:12px;border:1.5px solid var(--border);background:var(--surface);color:var(--text);text-decoration:none;font-weight:600}
+a.op:hover{border-color:var(--agua)}
+a.op.principal{background:var(--agua);border-color:var(--agua);color:var(--agua-contrast)}
+a.op:focus-visible{outline:3px solid var(--sol);outline-offset:2px}
+</style>
+<script>try{ var t = localStorage.getItem("tt-tema"); if(t) document.documentElement.setAttribute("data-theme", t); }catch(e){}</script>
+</head>
+<body>
+<main>
+  <svg width="56" height="56" viewBox="0 0 40 40" aria-hidden="true"><rect class="logo-bg" width="40" height="40" rx="11"/><circle class="logo-sol" cx="28" cy="12" r="3.4"/><path class="logo-rio" d="M10 15.5h20" stroke-width="3.2" stroke-linecap="round"/><path class="logo-rio" d="M20 15.5c0 4.5-4.6 6-4.6 10.3S20 30.6 20 33" fill="none" stroke-width="3.2" stroke-linecap="round"/></svg>
+  <div class="cod">ERRO 404</div>
+  <h1>Essa página não existe.</h1>
+  <p>O endereço pode ter sido digitado errado ou a página mudou de lugar. Escolha para onde ir:</p>
+  <nav aria-label="Páginas do site">
+    <a class="op principal" href="https://pablo107564-ops.github.io/tapajos-tech/">Início da Tapajós Tech</a>
+    <a class="op" href="https://pablo107564-ops.github.io/tapajos-tech/balcao/">Balcão PDV, o caixa da sua loja</a>
+    <a class="op" href="https://pablo107564-ops.github.io/tapajos-tech/leitor-de-bolso/">Leitor de Bolso, o leitor de PDF</a>
+  </nav>
+</main>
+</body>
+</html>

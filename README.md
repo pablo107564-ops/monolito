@@ -8,6 +8,7 @@ index.html                  a marca e a vitrine dos apps
 balcao/                     página do Balcão PDV (fotos em balcao/img)
 leitor-de-bolso/            página do Leitor de Bolso e a política de privacidade dele
 img/og.jpg                  imagem que aparece quando alguém compartilha o link
+404.html                    página de endereço errado (links completos, porque vale para qualquer pasta)
 ```
 
 ## Contatos e links
@@ -15,7 +16,7 @@ img/og.jpg                  imagem que aparece quando alguém compartilha o link
 Cada página tem um bloco `CONFIG` no fim do arquivo:
 
 - **WhatsApp:** com DDD; o 55 do Brasil entra sozinho.
-- **E-mail.**
+- **E-mail** e **Instagram** (só o nome, sem @).
 - **Balcão:** download e loja online.
 - **Leitor:** Google Play, APK e endereço do app no navegador.
 

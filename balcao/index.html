@@ -309,7 +309,9 @@ footer .brand{font-size:16px}
 footer .mark{width:28px;height:28px;font-size:15px;border-radius:8px}
 footer a{color:var(--text-dim)}
 
-.zap{position:fixed;right:18px;bottom:18px;z-index:30;width:58px;height:58px;border-radius:50%;background:#138A45;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.25)}
+.zap{position:fixed;right:18px;bottom:18px;z-index:30;width:58px;height:58px;border-radius:50%;background:#138A45;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.25);opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .2s, transform .2s}
+.zap.on{opacity:1;transform:none;pointer-events:auto}
+.zap[hidden]{display:none}
 @media (prefers-reduced-motion: reduce){ *{animation:none!important;transition:none!important;scroll-behavior:auto!important} }
 </style>
 </head>
@@ -489,7 +491,7 @@ footer a{color:var(--text-dim)}
   <div class="wrap">
     <div class="sec-head">
       <div><span class="eyebrow">Planos</span><h2>Mensal, por loja. Sem fidelidade.</h2></div>
-      <p>Pague com Pix, cartão de crédito ou débito, Mercado Pago ou PayPal. Todos os planos começam com 15 dias grátis.</p>
+      <p>Pague por Pix ou cartão. Antes, teste 15 dias com tudo liberado, sem pagar nada.</p>
     </div>
     <div class="planos">
       <div class="plano">
@@ -508,7 +510,7 @@ footer a{color:var(--text-dim)}
         <a class="btn" data-link="comprar" data-plano="essencial" href="#duvidas">Assinar o Essencial</a>
       </div>
       <div class="plano destaque">
-        <span class="selo">MAIS ESCOLHIDO</span>
+        <span class="selo">RECOMENDADO</span>
         <h3>Profissional</h3>
         <p class="para">Para a loja que quer crescer</p>
         <div class="preco"><span class="mono">R$&nbsp;229,90</span><small>/mês</small></div>
@@ -527,7 +529,7 @@ footer a{color:var(--text-dim)}
       </div>
       <div class="plano">
         <h3>Premium</h3>
-        <p class="para">Para redes e lojas grandes</p>
+        <p class="para">Para lojas grandes, com vários caixas</p>
         <div class="preco"><span class="mono">R$&nbsp;449,90</span><small>/mês</small></div>
         <div class="maq">Até 10 computadores</div>
         <hr class="tear">
@@ -608,7 +610,7 @@ footer a{color:var(--text-dim)}
   <div class="wrap">
     <a class="brand" href="#"><span class="mark" aria-hidden="true">B</span>Balcão PDV</a>
     <span>Sistema de frente de caixa para mercado, padaria, conveniência, bar e loja. Um app da <a href="../index.html">Tapajós Tech</a>.</span>
-    <div id="contatos"><a data-link="whatsapp" href="#duvidas">WhatsApp</a> · <a data-link="email" href="#duvidas">E-mail</a> · <a data-link="termos" href="#duvidas">Termos e privacidade</a></div>
+    <div id="contatos"><a data-link="whatsapp" href="#duvidas">WhatsApp</a> · <a data-link="email" href="#duvidas">E-mail</a> · <a data-link="instagram" href="#duvidas">Instagram</a> · <a data-link="termos" href="#duvidas">Termos e privacidade</a></div>
   </div>
 </footer>
 
@@ -621,6 +623,7 @@ footer a{color:var(--text-dim)}
 var CONFIG = {
   whatsapp: "93 98121-2924",   // com DDD. Ex.: "11 99999-8888" (o 55 do Brasil entra sozinho)
   email: "",      // Ex.: "contato@balcaopdv.com.br"
+  instagram: "",  // só o nome, sem @. Ex.: "tapajostech"
   download: "",   // link do instalador (BalcaoSetup.exe) para o teste grátis
   loja: ""        // endereço do site de vendas com pagamento (loja online). Ex.: "https://balcao.seu-endereco.ts.net"
 };
@@ -744,7 +747,7 @@ var CONFIG = {
       var on = liga.indexOf(d.dataset.k) >= 0, ex = n.extra.indexOf(d.dataset.k) >= 0;
       d.classList.toggle("on", on); d.classList.toggle("extra", ex);
       var tag = d.querySelector(".tag"); if(tag) tag.remove();
-      if(ex){ var s = document.createElement("span"); s.className = "tag"; s.textContent = "DO NICHO"; d.appendChild(s); }
+      if(ex){ var s = document.createElement("span"); s.className = "tag"; s.textContent = "DO RAMO"; d.appendChild(s); }
       d.setAttribute("aria-label", d.children[1].textContent + (on ? ": ligada" : ": desligada"));
     });
     var t = $("nichoTxt"); t.innerHTML = "<h3></h3><p></p><div class=\"conta\"><b></b> de " + FUNCOES.length + " funções ligadas. As outras você liga em Ajustes, se precisar.</div>";
@@ -803,7 +806,8 @@ var CONFIG = {
   }
   document.querySelectorAll("[data-link]").forEach(function(a){
     var tipo = a.getAttribute("data-link");
-    var url = {whatsapp: zapLink, email: email, download: baixar, termos: loja ? loja + "/termos" : ""}[tipo];
+    var url = {whatsapp: zapLink, email: email, download: baixar, termos: loja ? loja + "/termos" : "",
+               instagram: CONFIG.instagram ? "https://instagram.com/" + encodeURIComponent(CONFIG.instagram.replace(/^@/, "")) : ""}[tipo];
     if(tipo === "comprar") url = assinar(a.getAttribute("data-plano"));
     if(!url){ a.hidden = true; return; }
     a.href = url; a.hidden = false;
@@ -813,6 +817,10 @@ var CONFIG = {
   var bonito = numero.length === 11 ? "(" + numero.slice(0,2) + ") " + numero.slice(2,7) + "-" + numero.slice(7) : numero.length === 10 ? "(" + numero.slice(0,2) + ") " + numero.slice(2,6) + "-" + numero.slice(6) : CONFIG.whatsapp;
   document.querySelectorAll("[data-numero]").forEach(function(s){ if(bonito) s.textContent = "WhatsApp " + bonito; else s.hidden = true; });
   if(!zapLink){ var c = document.querySelector("[data-contato]"); if(c) c.hidden = true; }
+  // o botão flutuante do WhatsApp só aparece depois da abertura, para não cobrir o caixa de exemplo
+  var flutua = document.querySelector(".zap");
+  var mostra = function(){ flutua.classList.toggle("on", scrollY > innerHeight * 0.8); };
+  addEventListener("scroll", mostra, {passive:true}); mostra();
   var rodape = $("contatos");
   var visiveis = Array.prototype.filter.call(rodape.querySelectorAll("a"), function(a){ return !a.hidden; });
   rodape.textContent = "";
