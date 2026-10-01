@@ -3,25 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tapajós Tech — apps feitos no Pará para o dia a dia de quem trabalha</title>
-<meta name="description" content="A Tapajós Tech faz apps simples, que funcionam sem internet e respeitam os seus dados: o Balcão PDV, sistema de caixa para o comércio, e o Leitor de Bolso, leitor de PDF gratuito.">
-<meta property="og:title" content="Tapajós Tech — apps para o dia a dia de quem trabalha">
+<title>Monolito Sistemas — apps sólidos para o dia a dia de quem trabalha</title>
+<meta name="description" content="A Monolito Sistemas faz apps sólidos e simples, que funcionam sem internet e respeitam os seus dados: o Balcão PDV, sistema de caixa para o comércio, e o Leitor de Bolso, leitor de PDF gratuito.">
+<meta property="og:title" content="Monolito Sistemas — apps para o dia a dia de quem trabalha">
 <meta property="og:description" content="Balcão PDV, o caixa da sua loja. Leitor de Bolso, PDF simples e privado. Feitos no Pará.">
-<meta property="og:image" content="https://pablo107564-ops.github.io/tapajos-tech/img/og.jpg">
+<meta property="og:image" content="https://pablo107564-ops.github.io/monolito/img/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://pablo107564-ops.github.io/tapajos-tech/">
-<link rel="canonical" href="https://pablo107564-ops.github.io/tapajos-tech/">
+<meta property="og:url" content="https://pablo107564-ops.github.io/monolito/">
+<link rel="canonical" href="https://pablo107564-ops.github.io/monolito/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#F4F6F5" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0D1719" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230B5E66'/%3E%3Ccircle cx='28' cy='12' r='3.4' fill='%23E0873A'/%3E%3Cpath d='M10 15.5h20' stroke='white' stroke-width='3.2' stroke-linecap='round'/%3E%3Cpath d='M20 15.5c0 4.5-4.6 6-4.6 10.3S20 30.6 20 33' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230B5E66'/%3E%3Crect x='15' y='8' width='10' height='21' rx='1.6' fill='white'/%3E%3Cpath d='M9.5 32.5h21' stroke='white' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
 <style>
-/* Tapajós Tech: água do rio (verde-azulado profundo), fundo claro e frio, um pôr do sol só no logotipo.
+/* Monolito Sistemas: verde-azulado profundo, fundo claro e frio; o logotipo é um bloco sólido sobre a base.
    Títulos em Bricolage Grotesque, texto em IBM Plex Sans (a mesma do Balcão). */
 :root{
   color-scheme: light;
@@ -29,7 +29,6 @@
   --text:#0F1D1F; --text-dim:#4E6063; --muted:#5E6F72;
   --border:#DCE3E2; --border-strong:#C5D0CF;
   --agua:#0B5E66; --agua-strong:#084A51; --agua-soft:#DCEDEC; --agua-contrast:#FFFFFF;
-  --sol:#E0873A;
   --balcao:#0E7A57; --balcao-strong:#0B5F44; --balcao-soft:#E3F3EC;
   --leitor:#1F6F6B; --leitor-soft:#DDEDEB;
   --shadow: 0 1px 2px rgba(12,30,32,.05), 0 10px 30px rgba(12,30,32,.08);
@@ -84,7 +83,7 @@ p{margin:0}
 /* logotipo: o sol se pondo na linha do rio, que desce e faz o T */
 .logo{display:flex;align-items:center;gap:11px;white-space:nowrap;color:var(--text);text-decoration:none;font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:-.02em}
 .logo svg{flex:none}
-.logo-bg{fill:var(--agua)} .logo-sol{fill:var(--sol)} .logo-rio{stroke:var(--agua-contrast)}
+.logo-bg{fill:var(--agua)} .logo-pedra{fill:var(--agua-contrast)} .logo-base{stroke:var(--agua-contrast)}
 
 .top{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--bg) 88%, transparent);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--border)}
 .top .wrap{display:flex;align-items:center;gap:18px;height:68px}
@@ -210,9 +209,9 @@ footer .copy{margin-top:12px;font-size:14px;color:var(--muted)}
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#" aria-label="Tapajós Tech, início">
-      <svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true"><rect class="logo-bg" width="40" height="40" rx="11"/><circle class="logo-sol" cx="28" cy="12" r="3.4"/><path class="logo-rio" d="M10 15.5h20" stroke-width="3.2" stroke-linecap="round"/><path class="logo-rio" d="M20 15.5c0 4.5-4.6 6-4.6 10.3S20 30.6 20 33" fill="none" stroke-width="3.2" stroke-linecap="round"/></svg>
-      Tapajós Tech</a>
+    <a class="logo" href="#" aria-label="Monolito, início">
+      <svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true"><rect class="logo-bg" width="40" height="40" rx="11"/><rect class="logo-pedra" x="15" y="8" width="10" height="21" rx="1.6"/><path class="logo-base" d="M9.5 32.5h21" stroke-width="3.2" stroke-linecap="round"/></svg>
+      Monolito</a>
     <nav class="menu" aria-label="Principal">
       <a href="#apps">Apps</a>
       <a href="#sobre">Sobre</a>
@@ -230,7 +229,7 @@ footer .copy{margin-top:12px;font-size:14px;color:var(--muted)}
 <div class="hero">
   <div class="wrap">
     <div>
-      <p class="eyebrow">Tapajós Tech · apps feitos no Pará</p>
+      <p class="eyebrow">Monolito Sistemas · feito no Pará</p>
       <h1 style="margin-top:18px">Apps para o dia a dia de <em>quem trabalha.</em></h1>
       <p class="lead">Fazemos programas simples, que continuam funcionando quando a internet cai e deixam os seus dados com você. Um para o caixa da sua loja, outro para ler PDF no celular, e mais vindo por aí.</p>
       <div class="acoes">
@@ -330,9 +329,9 @@ footer .copy{margin-top:12px;font-size:14px;color:var(--muted)}
 
 <section id="sobre">
   <div class="wrap sobre">
-    <div><span class="eyebrow">Sobre</span><h2>O nome vem do rio. O jeito de fazer, também.</h2></div>
+    <div><span class="eyebrow">Sobre</span><h2>Sistemas de uma peça só.</h2></div>
     <div class="txt">
-      <p>A <b>Tapajós Tech</b> nasceu no Pará e leva o nome do rio Tapajós: água clara, que corre sem pressa e chega longe.</p>
+      <p>Na tecnologia, <b>monolito</b> é o sistema que funciona inteiro, numa peça só, sem depender de um monte de serviços por fora. Fora dela, é a pedra que fica de pé. Por isso a <b>Monolito Sistemas</b>, nascida no Pará, tem esse nome.</p>
       <p>É assim que tentamos fazer software. Apps pequenos, bem acabados, que resolvem um problema de verdade do comércio e do dia a dia, sem anúncio, sem cadastro desnecessário e sem depender de uma internet que nem sempre está lá.</p>
       <p>Começamos pelo <b>Balcão PDV</b>, para o caixa das lojas, e pelo <b>Leitor de Bolso</b>, para quem só quer abrir um PDF e ler. Os próximos seguem as mesmas regras.</p>
     </div>
@@ -360,8 +359,8 @@ footer .copy{margin-top:12px;font-size:14px;color:var(--muted)}
 <footer>
   <div class="wrap">
     <div>
-      <a class="logo" href="#" style="font-size:18px"><svg width="30" height="30" viewBox="0 0 40 40" aria-hidden="true"><rect class="logo-bg" width="40" height="40" rx="11"/><circle class="logo-sol" cx="28" cy="12" r="3.4"/><path class="logo-rio" d="M10 15.5h20" stroke-width="3.2" stroke-linecap="round"/><path class="logo-rio" d="M20 15.5c0 4.5-4.6 6-4.6 10.3S20 30.6 20 33" fill="none" stroke-width="3.2" stroke-linecap="round"/></svg>Tapajós Tech</a>
-      <p class="copy">Apps feitos no Pará para o dia a dia de quem trabalha. © <span id="ano">2026</span> Tapajós Tech.</p>
+      <a class="logo" href="#" style="font-size:18px"><svg width="30" height="30" viewBox="0 0 40 40" aria-hidden="true"><rect class="logo-bg" width="40" height="40" rx="11"/><rect class="logo-pedra" x="15" y="8" width="10" height="21" rx="1.6"/><path class="logo-base" d="M9.5 32.5h21" stroke-width="3.2" stroke-linecap="round"/></svg>Monolito</a>
+      <p class="copy">Apps feitos no Pará para o dia a dia de quem trabalha. © <span id="ano">2026</span> Monolito Sistemas.</p>
     </div>
     <div>
       <h4>Apps</h4>
@@ -382,18 +381,18 @@ footer .copy{margin-top:12px;font-size:14px;color:var(--muted)}
 /* ===== Configuração do site: preencha e publique de novo ===== */
 var CONFIG = {
   whatsapp: "93 98121-2924",   // com DDD. Ex.: "11 99999-8888" (o 55 do Brasil entra sozinho)
-  email: "",                   // Ex.: "contato@tapajostech.com.br"
-  instagram: ""                // só o nome, sem @. Ex.: "tapajostech"
+  email: "",                   // Ex.: "contato@seudominio.com.br"
+  instagram: ""                // só o nome, sem @. Ex.: "monolitosistemas"
 };
 /* ============================================================= */
 (function(){
   var root = document.documentElement;
-  try { var salvo = localStorage.getItem("tt-tema"); if(salvo) root.setAttribute("data-theme", salvo); } catch(e){}
+  try { var salvo = localStorage.getItem("mono-tema"); if(salvo) root.setAttribute("data-theme", salvo); } catch(e){}
   document.getElementById("tema").addEventListener("click", function(){
     var escuro = root.getAttribute("data-theme") ? root.getAttribute("data-theme") === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
     var novo = escuro ? "light" : "dark";
     root.setAttribute("data-theme", novo);
-    try { localStorage.setItem("tt-tema", novo); } catch(e){}
+    try { localStorage.setItem("mono-tema", novo); } catch(e){}
   });
   document.getElementById("ano").textContent = new Date().getFullYear();
 
@@ -401,8 +400,8 @@ var CONFIG = {
   var zap = (num.length === 10 || num.length === 11) ? "55" + num : num;
   var wa = function(msg){ return zap ? "https://wa.me/" + zap + "?text=" + encodeURIComponent(msg) : ""; };
   var destinos = {
-    "whatsapp": wa("Olá! Vim pelo site da Tapajós Tech."),
-    "whatsapp-ideia": wa("Olá! Tenho uma ideia de app / quero ser avisado do próximo app da Tapajós Tech."),
+    "whatsapp": wa("Olá! Vim pelo site da Monolito Sistemas."),
+    "whatsapp-ideia": wa("Olá! Tenho uma ideia de app / quero ser avisado do próximo app da Monolito."),
     "email": CONFIG.email ? "mailto:" + CONFIG.email : "",
     "instagram": CONFIG.instagram ? "https://instagram.com/" + encodeURIComponent(CONFIG.instagram.replace(/^@/, "")) : ""
   };
