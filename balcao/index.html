@@ -7,16 +7,16 @@
 <meta name="description" content="Balcão é o sistema de frente de caixa (PDV) que funciona sem internet: NFC-e, estoque, fiado, mesas, comandas, pedido na cozinha e WhatsApp. Teste grátis por 15 dias.">
 <meta property="og:title" content="Balcão PDV — bipou, somou, fechou.">
 <meta property="og:description" content="O caixa da sua loja: vende rápido, controla o estoque, emite a NFC-e e continua vendendo quando a internet cai. 15 dias grátis.">
-<meta property="og:image" content="https://pablo107564-ops.github.io/monolito/balcao/img/og.jpg">
+<meta property="og:image" content="https://pablo107564-ops.github.io/kernelnorte/balcao/img/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://pablo107564-ops.github.io/monolito/balcao/">
-<link rel="canonical" href="https://pablo107564-ops.github.io/monolito/balcao/">
+<meta property="og:url" content="https://pablo107564-ops.github.io/kernelnorte/balcao/">
+<link rel="canonical" href="https://pablo107564-ops.github.io/kernelnorte/balcao/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#F5F4EF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#121513" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230B5E66'/%3E%3Crect x='15' y='8' width='10' height='21' rx='1.6' fill='white'/%3E%3Cpath d='M9.5 32.5h21' stroke='white' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230B5E66'/%3E%3Cpath d='M16 8.5v3.5M20 8.5v3.5M24 8.5v3.5M16 28v3.5M20 28v3.5M24 28v3.5M8.5 16H12M8.5 20H12M8.5 24H12M28 16h3.5M28 20h3.5M28 24h3.5' stroke='white' stroke-width='2.2' stroke-linecap='round'/%3E%3Crect x='12' y='12' width='16' height='16' rx='2.6' fill='white'/%3E%3Cpath d='M20 14.6l-4.4 5.6h2.9v4.6h3v-4.6h2.9z' fill='%230B5E66'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
@@ -85,16 +85,16 @@ button{font:inherit;color:inherit;cursor:pointer}
 .btn svg{flex:none}
 kbd{font-family:var(--font-mono);font-size:11.5px;font-weight:600;padding:1px 6px;border-radius:5px;border:1px solid currentColor;opacity:.75}
 
-/* faixa da Monolito: a mesma nas páginas de todos os apps */
+/* faixa da Kernel Norte: a mesma nas páginas de todos os apps */
 .tt{background:var(--surface-2);border-bottom:1px solid var(--border);font-size:13.5px}
 .tt .wrap{display:flex;align-items:center;gap:10px;height:38px}
 .tt a{color:var(--text-dim);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
 .tt a:hover{color:var(--text)}
 .tt b{font-family:'Bricolage Grotesque',var(--font-ui);font-weight:700;letter-spacing:-.01em;color:var(--text)}
 .tt .todos{margin-left:auto}
-.tt-bg{fill:#0B5E66} .tt-pedra{fill:#FFFFFF} .tt-base{stroke:#FFFFFF}
-:root[data-theme="dark"] .tt-bg{fill:#5CC3C0} :root[data-theme="dark"] .tt-pedra{fill:#08191B} :root[data-theme="dark"] .tt-base{stroke:#08191B}
-@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .tt-bg{fill:#5CC3C0} :root:not([data-theme="light"]) .tt-pedra{fill:#08191B} :root:not([data-theme="light"]) .tt-base{stroke:#08191B} }
+.tt-bg{fill:#0B5E66} .tt-chip{fill:#FFFFFF} .tt-pinos{stroke:#FFFFFF} .tt-seta{fill:#0B5E66}
+:root[data-theme="dark"] .tt-bg{fill:#5CC3C0} :root[data-theme="dark"] .tt-chip{fill:#08191B} :root[data-theme="dark"] .tt-pinos{stroke:#08191B} :root[data-theme="dark"] .tt-seta{fill:#5CC3C0}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .tt-bg{fill:#5CC3C0} :root:not([data-theme="light"]) .tt-chip{fill:#08191B} :root:not([data-theme="light"]) .tt-pinos{stroke:#08191B} :root:not([data-theme="light"]) .tt-seta{fill:#5CC3C0} }
 
 /* topo */
 .top{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--bg) 88%, transparent);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--border)}
@@ -319,7 +319,7 @@ footer a{color:var(--text-dim)}
 
 <div class="tt">
   <div class="wrap">
-    <a href="../index.html"><svg width="20" height="20" viewBox="0 0 40 40" aria-hidden="true"><rect class="tt-bg" width="40" height="40" rx="11"/><rect class="tt-pedra" x="15" y="8" width="10" height="21" rx="1.6"/><path class="tt-base" d="M9.5 32.5h21" stroke-width="3.6" stroke-linecap="round"/></svg><span>Um app da <b>Monolito</b></span></a>
+    <a href="../index.html"><svg width="20" height="20" viewBox="0 0 40 40" aria-hidden="true"><rect class="tt-bg" width="40" height="40" rx="11"/><path class="tt-pinos" d="M16 8.5v3.5M20 8.5v3.5M24 8.5v3.5M16 28v3.5M20 28v3.5M24 28v3.5M8.5 16H12M8.5 20H12M8.5 24H12M28 16h3.5M28 20h3.5M28 24h3.5" stroke-width="2.2" stroke-linecap="round"/><rect class="tt-chip" x="12" y="12" width="16" height="16" rx="2.6"/><path class="tt-seta" d="M20 14.6l-4.4 5.6h2.9v4.6h3v-4.6h2.9z"/></svg><span>Um app da <b>Kernel Norte</b></span></a>
     <a class="todos" href="../index.html#apps">Todos os apps →</a>
   </div>
 </div>
@@ -609,7 +609,7 @@ footer a{color:var(--text-dim)}
 <footer>
   <div class="wrap">
     <a class="brand" href="#"><span class="mark" aria-hidden="true">B</span>Balcão PDV</a>
-    <span>Sistema de frente de caixa para mercado, padaria, conveniência, bar e loja. Um app da <a href="../index.html">Monolito Sistemas</a>.</span>
+    <span>Sistema de frente de caixa para mercado, padaria, conveniência, bar e loja. Um app da <a href="../index.html">Kernel Norte Sistemas</a>.</span>
     <div id="contatos"><a data-link="whatsapp" href="#duvidas">WhatsApp</a> · <a data-link="email" href="#duvidas">E-mail</a> · <a data-link="instagram" href="#duvidas">Instagram</a> · <a data-link="termos" href="#duvidas">Termos e privacidade</a></div>
   </div>
 </footer>
@@ -623,7 +623,7 @@ footer a{color:var(--text-dim)}
 var CONFIG = {
   whatsapp: "93 98121-2924",   // com DDD. Ex.: "11 99999-8888" (o 55 do Brasil entra sozinho)
   email: "",      // Ex.: "contato@balcaopdv.com.br"
-  instagram: "",  // só o nome, sem @. Ex.: "monolitosistemas"
+  instagram: "",  // só o nome, sem @. Ex.: "kernelnorte"
   download: "",   // link do instalador (BalcaoSetup.exe) para o teste grátis
   loja: ""        // endereço do site de vendas com pagamento (loja online). Ex.: "https://balcao.seu-endereco.ts.net"
 };
@@ -636,12 +636,12 @@ var CONFIG = {
 
   /* ---- tema: segue o computador; o botão troca e lembra (só neste navegador) ---- */
   var root = document.documentElement;
-  try { var salvo = localStorage.getItem("mono-tema"); if(salvo) root.setAttribute("data-theme", salvo); } catch(e){}
+  try { var salvo = localStorage.getItem("kn-tema"); if(salvo) root.setAttribute("data-theme", salvo); } catch(e){}
   $("tema").addEventListener("click", function(){
     var escuroAgora = root.getAttribute("data-theme") ? root.getAttribute("data-theme") === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
     var novo = escuroAgora ? "light" : "dark";
     root.setAttribute("data-theme", novo);
-    try { localStorage.setItem("mono-tema", novo); } catch(e){}
+    try { localStorage.setItem("kn-tema", novo); } catch(e){}
   });
 
   /* ---- mini-caixa: os produtos de exemplo do próprio Balcão ---- */
