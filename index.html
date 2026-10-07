@@ -3,25 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Monolito Sistemas — apps sólidos para o dia a dia de quem trabalha</title>
-<meta name="description" content="A Monolito Sistemas faz apps sólidos e simples, que funcionam sem internet e respeitam os seus dados: o Balcão PDV, sistema de caixa para o comércio, e o Leitor de Bolso, leitor de PDF gratuito.">
-<meta property="og:title" content="Monolito Sistemas — apps para o dia a dia de quem trabalha">
+<title>Kernel Norte Sistemas — apps para o dia a dia de quem trabalha</title>
+<meta name="description" content="A Kernel Norte Sistemas faz apps simples e confiáveis, que funcionam sem internet e respeitam os seus dados: o Balcão PDV, sistema de caixa para o comércio, e o Leitor de Bolso, leitor de PDF gratuito.">
+<meta property="og:title" content="Kernel Norte Sistemas — apps para o dia a dia de quem trabalha">
 <meta property="og:description" content="Balcão PDV, o caixa da sua loja. Leitor de Bolso, PDF simples e privado. Feitos no Pará.">
-<meta property="og:image" content="https://pablo107564-ops.github.io/monolito/img/og.jpg">
+<meta property="og:image" content="https://pablo107564-ops.github.io/kernelnorte/img/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://pablo107564-ops.github.io/monolito/">
-<link rel="canonical" href="https://pablo107564-ops.github.io/monolito/">
+<meta property="og:url" content="https://pablo107564-ops.github.io/kernelnorte/">
+<link rel="canonical" href="https://pablo107564-ops.github.io/kernelnorte/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#F4F6F5" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0D1719" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230B5E66'/%3E%3Crect x='15' y='8' width='10' height='21' rx='1.6' fill='white'/%3E%3Cpath d='M9.5 32.5h21' stroke='white' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230B5E66'/%3E%3Cpath d='M16 8.5v3.5M20 8.5v3.5M24 8.5v3.5M16 28v3.5M20 28v3.5M24 28v3.5M8.5 16H12M8.5 20H12M8.5 24H12M28 16h3.5M28 20h3.5M28 24h3.5' stroke='white' stroke-width='2.2' stroke-linecap='round'/%3E%3Crect x='12' y='12' width='16' height='16' rx='2.6' fill='white'/%3E%3Cpath d='M20 14.6l-4.4 5.6h2.9v4.6h3v-4.6h2.9z' fill='%230B5E66'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
 <style>
-/* Monolito Sistemas: verde-azulado profundo, fundo claro e frio; o logotipo é um bloco sólido sobre a base.
+/* Kernel Norte Sistemas: verde-azulado profundo, fundo claro e frio; o logotipo é um chip com uma seta para o norte.
    Títulos em Bricolage Grotesque, texto em IBM Plex Sans (a mesma do Balcão). */
 :root{
   color-scheme: light;
@@ -83,7 +83,7 @@ p{margin:0}
 /* logotipo: o sol se pondo na linha do rio, que desce e faz o T */
 .logo{display:flex;align-items:center;gap:11px;white-space:nowrap;color:var(--text);text-decoration:none;font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:-.02em}
 .logo svg{flex:none}
-.logo-bg{fill:var(--agua)} .logo-pedra{fill:var(--agua-contrast)} .logo-base{stroke:var(--agua-contrast)}
+.logo-bg{fill:var(--agua)} .logo-chip{fill:var(--agua-contrast)} .logo-pinos{stroke:var(--agua-contrast)} .logo-seta{fill:var(--agua)}
 
 .top{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--bg) 88%, transparent);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--border)}
 .top .wrap{display:flex;align-items:center;gap:18px;height:68px}
@@ -209,9 +209,9 @@ footer .copy{margin-top:12px;font-size:14px;color:var(--muted)}
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#" aria-label="Monolito, início">
-      <svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true"><rect class="logo-bg" width="40" height="40" rx="11"/><rect class="logo-pedra" x="15" y="8" width="10" height="21" rx="1.6"/><path class="logo-base" d="M9.5 32.5h21" stroke-width="3.2" stroke-linecap="round"/></svg>
-      Monolito</a>
+    <a class="logo" href="#" aria-label="Kernel Norte, início">
+      <svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true"><rect class="logo-bg" width="40" height="40" rx="11"/><path class="logo-pinos" d="M16 8.5v3.5M20 8.5v3.5M24 8.5v3.5M16 28v3.5M20 28v3.5M24 28v3.5M8.5 16H12M8.5 20H12M8.5 24H12M28 16h3.5M28 20h3.5M28 24h3.5" stroke-width="2.2" stroke-linecap="round"/><rect class="logo-chip" x="12" y="12" width="16" height="16" rx="2.6"/><path class="logo-seta" d="M20 14.6l-4.4 5.6h2.9v4.6h3v-4.6h2.9z"/></svg>
+      Kernel Norte</a>
     <nav class="menu" aria-label="Principal">
       <a href="#apps">Apps</a>
       <a href="#sobre">Sobre</a>
@@ -229,7 +229,7 @@ footer .copy{margin-top:12px;font-size:14px;color:var(--muted)}
 <div class="hero">
   <div class="wrap">
     <div>
-      <p class="eyebrow">Monolito Sistemas · feito no Pará</p>
+      <p class="eyebrow">Kernel Norte Sistemas · feito no Pará</p>
       <h1 style="margin-top:18px">Apps para o dia a dia de <em>quem trabalha.</em></h1>
       <p class="lead">Fazemos programas simples, que continuam funcionando quando a internet cai e deixam os seus dados com você. Um para o caixa da sua loja, outro para ler PDF no celular, e mais vindo por aí.</p>
       <div class="acoes">
@@ -329,9 +329,9 @@ footer .copy{margin-top:12px;font-size:14px;color:var(--muted)}
 
 <section id="sobre">
   <div class="wrap sobre">
-    <div><span class="eyebrow">Sobre</span><h2>Sistemas de uma peça só.</h2></div>
+    <div><span class="eyebrow">Sobre</span><h2>O núcleo do seu negócio, feito no Norte.</h2></div>
     <div class="txt">
-      <p>Na tecnologia, <b>monolito</b> é o sistema que funciona inteiro, numa peça só, sem depender de um monte de serviços por fora. Fora dela, é a pedra que fica de pé. Por isso a <b>Monolito Sistemas</b>, nascida no Pará, tem esse nome.</p>
+      <p>Na informática, <b>kernel</b> é o núcleo do sistema: a parte que fica por baixo de tudo e faz o computador funcionar. É esse o papel que queremos ter no dia a dia de quem trabalha. E <b>Norte</b> é de onde viemos, o Pará, e também a direção para onde a gente aponta. Por isso a <b>Kernel Norte Sistemas</b> tem esse nome.</p>
       <p>É assim que tentamos fazer software. Apps pequenos, bem acabados, que resolvem um problema de verdade do comércio e do dia a dia, sem anúncio, sem cadastro desnecessário e sem depender de uma internet que nem sempre está lá.</p>
       <p>Começamos pelo <b>Balcão PDV</b>, para o caixa das lojas, e pelo <b>Leitor de Bolso</b>, para quem só quer abrir um PDF e ler. Os próximos seguem as mesmas regras.</p>
     </div>
@@ -359,8 +359,8 @@ footer .copy{margin-top:12px;font-size:14px;color:var(--muted)}
 <footer>
   <div class="wrap">
     <div>
-      <a class="logo" href="#" style="font-size:18px"><svg width="30" height="30" viewBox="0 0 40 40" aria-hidden="true"><rect class="logo-bg" width="40" height="40" rx="11"/><rect class="logo-pedra" x="15" y="8" width="10" height="21" rx="1.6"/><path class="logo-base" d="M9.5 32.5h21" stroke-width="3.2" stroke-linecap="round"/></svg>Monolito</a>
-      <p class="copy">Apps feitos no Pará para o dia a dia de quem trabalha. © <span id="ano">2026</span> Monolito Sistemas.</p>
+      <a class="logo" href="#" style="font-size:18px"><svg width="30" height="30" viewBox="0 0 40 40" aria-hidden="true"><rect class="logo-bg" width="40" height="40" rx="11"/><path class="logo-pinos" d="M16 8.5v3.5M20 8.5v3.5M24 8.5v3.5M16 28v3.5M20 28v3.5M24 28v3.5M8.5 16H12M8.5 20H12M8.5 24H12M28 16h3.5M28 20h3.5M28 24h3.5" stroke-width="2.2" stroke-linecap="round"/><rect class="logo-chip" x="12" y="12" width="16" height="16" rx="2.6"/><path class="logo-seta" d="M20 14.6l-4.4 5.6h2.9v4.6h3v-4.6h2.9z"/></svg>Kernel Norte</a>
+      <p class="copy">Apps feitos no Pará para o dia a dia de quem trabalha. © <span id="ano">2026</span> Kernel Norte Sistemas.</p>
     </div>
     <div>
       <h4>Apps</h4>
@@ -381,18 +381,18 @@ footer .copy{margin-top:12px;font-size:14px;color:var(--muted)}
 /* ===== Configuração do site: preencha e publique de novo ===== */
 var CONFIG = {
   whatsapp: "93 98121-2924",   // com DDD. Ex.: "11 99999-8888" (o 55 do Brasil entra sozinho)
-  email: "",                   // Ex.: "contato@seudominio.com.br"
-  instagram: ""                // só o nome, sem @. Ex.: "monolitosistemas"
+  email: "",                   // Ex.: "contato@kernelnorte.com.br"
+  instagram: ""                // só o nome, sem @. Ex.: "kernelnorte"
 };
 /* ============================================================= */
 (function(){
   var root = document.documentElement;
-  try { var salvo = localStorage.getItem("mono-tema"); if(salvo) root.setAttribute("data-theme", salvo); } catch(e){}
+  try { var salvo = localStorage.getItem("kn-tema"); if(salvo) root.setAttribute("data-theme", salvo); } catch(e){}
   document.getElementById("tema").addEventListener("click", function(){
     var escuro = root.getAttribute("data-theme") ? root.getAttribute("data-theme") === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
     var novo = escuro ? "light" : "dark";
     root.setAttribute("data-theme", novo);
-    try { localStorage.setItem("mono-tema", novo); } catch(e){}
+    try { localStorage.setItem("kn-tema", novo); } catch(e){}
   });
   document.getElementById("ano").textContent = new Date().getFullYear();
 
@@ -400,8 +400,8 @@ var CONFIG = {
   var zap = (num.length === 10 || num.length === 11) ? "55" + num : num;
   var wa = function(msg){ return zap ? "https://wa.me/" + zap + "?text=" + encodeURIComponent(msg) : ""; };
   var destinos = {
-    "whatsapp": wa("Olá! Vim pelo site da Monolito Sistemas."),
-    "whatsapp-ideia": wa("Olá! Tenho uma ideia de app / quero ser avisado do próximo app da Monolito."),
+    "whatsapp": wa("Olá! Vim pelo site da Kernel Norte Sistemas."),
+    "whatsapp-ideia": wa("Olá! Tenho uma ideia de app / quero ser avisado do próximo app da Kernel Norte."),
     "email": CONFIG.email ? "mailto:" + CONFIG.email : "",
     "instagram": CONFIG.instagram ? "https://instagram.com/" + encodeURIComponent(CONFIG.instagram.replace(/^@/, "")) : ""
   };

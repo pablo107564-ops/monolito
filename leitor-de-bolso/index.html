@@ -7,11 +7,11 @@
 <meta name="description" content="Leitor de Bolso é um leitor de PDF para o celular: busca sem acento, índice, favoritos, PDF com senha e modo escuro. Grátis, sem anúncios, sem cadastro e sem pedir nenhuma permissão.">
 <meta property="og:title" content="Leitor de Bolso — abra o PDF e leia. Só isso.">
 <meta property="og:description" content="Leitor de PDF grátis, sem anúncios e sem permissões. Seus documentos não saem do celular.">
-<meta property="og:image" content="https://pablo107564-ops.github.io/monolito/leitor-de-bolso/img/og.jpg">
+<meta property="og:image" content="https://pablo107564-ops.github.io/kernelnorte/leitor-de-bolso/img/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://pablo107564-ops.github.io/monolito/leitor-de-bolso/">
-<link rel="canonical" href="https://pablo107564-ops.github.io/monolito/leitor-de-bolso/">
+<meta property="og:url" content="https://pablo107564-ops.github.io/kernelnorte/leitor-de-bolso/">
+<link rel="canonical" href="https://pablo107564-ops.github.io/kernelnorte/leitor-de-bolso/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#F7F8FA" media="(prefers-color-scheme: light)">
@@ -71,14 +71,14 @@ p{margin:0}
 [hidden]{display:none!important}
 .eyebrow{font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--accent)}
 
-/* faixa da Monolito: a mesma nas páginas de todos os apps */
+/* faixa da Kernel Norte: a mesma nas páginas de todos os apps */
 .tt{background:var(--chrome);border-bottom:1px solid var(--line);font-size:13.5px}
 .tt .wrap{display:flex;align-items:center;gap:10px;height:38px}
 .tt a{color:var(--muted);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
 .tt a:hover{color:var(--ink)}
 .tt b{font-family:'Bricolage Grotesque',var(--ui);font-weight:700;letter-spacing:-.01em;color:var(--ink)}
 .tt .todos{margin-left:auto}
-.tt-bg{fill:var(--agua)} .tt-pedra{fill:var(--bg)} .tt-base{stroke:var(--bg)}
+.tt-bg{fill:var(--agua)} .tt-chip{fill:var(--bg)} .tt-pinos{stroke:var(--bg)} .tt-seta{fill:var(--agua)}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 22px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font-weight:600;font-size:16px;text-decoration:none;white-space:nowrap;transition:border-color .12s, background .12s}
 .btn:hover{border-color:var(--muted)}
@@ -199,7 +199,7 @@ footer a{color:var(--muted)}
 
 <div class="tt">
   <div class="wrap">
-    <a href="../index.html"><svg width="20" height="20" viewBox="0 0 40 40" aria-hidden="true"><rect class="tt-bg" width="40" height="40" rx="11"/><rect class="tt-pedra" x="15" y="8" width="10" height="21" rx="1.6"/><path class="tt-base" d="M9.5 32.5h21" stroke-width="3.6" stroke-linecap="round"/></svg><span>Um app da <b>Monolito</b></span></a>
+    <a href="../index.html"><svg width="20" height="20" viewBox="0 0 40 40" aria-hidden="true"><rect class="tt-bg" width="40" height="40" rx="11"/><path class="tt-pinos" d="M16 8.5v3.5M20 8.5v3.5M24 8.5v3.5M16 28v3.5M20 28v3.5M24 28v3.5M8.5 16H12M8.5 20H12M8.5 24H12M28 16h3.5M28 20h3.5M28 24h3.5" stroke-width="2.2" stroke-linecap="round"/><rect class="tt-chip" x="12" y="12" width="16" height="16" rx="2.6"/><path class="tt-seta" d="M20 14.6l-4.4 5.6h2.9v4.6h3v-4.6h2.9z"/></svg><span>Um app da <b>Kernel Norte</b></span></a>
     <a class="todos" href="../index.html#apps">Todos os apps →</a>
   </div>
 </div>
@@ -352,7 +352,7 @@ footer a{color:var(--muted)}
   <div class="wrap">
     <span>Leitor de Bolso · <a href="privacidade.html">Política de privacidade</a></span>
     <span id="contatos"><a data-link="whatsapp" href="#instalar">WhatsApp</a> · <a data-link="email" href="#instalar">E-mail</a> · <a data-link="instagram" href="#instalar">Instagram</a></span>
-    <span>Um app da <a href="../index.html">Monolito Sistemas</a> · <a href="../balcao/index.html">Conheça também o Balcão PDV</a></span>
+    <span>Um app da <a href="../index.html">Kernel Norte Sistemas</a> · <a href="../balcao/index.html">Conheça também o Balcão PDV</a></span>
   </div>
 </footer>
 
@@ -363,18 +363,18 @@ var CONFIG = {
   apk: "",        // link direto do leitor-de-bolso.apk, se quiser distribuir o APK pelo site
   web: "",        // endereço do app no navegador (PWA). Ex.: "https://pablo107564-ops.github.io/leitor-pdf/"
   whatsapp: "93 98121-2924",  // para pedir o app enquanto não há link
-  email: "",                   // Ex.: "contato@seudominio.com.br"
-  instagram: ""                // só o nome, sem @. Ex.: "monolitosistemas"
+  email: "",                   // Ex.: "contato@kernelnorte.com.br"
+  instagram: ""                // só o nome, sem @. Ex.: "kernelnorte"
 };
 /* ================================================================== */
 (function(){
   var root = document.documentElement;
-  try { var salvo = localStorage.getItem("mono-tema"); if(salvo) root.setAttribute("data-theme", salvo); } catch(e){}
+  try { var salvo = localStorage.getItem("kn-tema"); if(salvo) root.setAttribute("data-theme", salvo); } catch(e){}
   document.getElementById("tema").addEventListener("click", function(){
     var escuro = root.getAttribute("data-theme") ? root.getAttribute("data-theme") === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
     var novo = escuro ? "light" : "dark";
     root.setAttribute("data-theme", novo);
-    try { localStorage.setItem("mono-tema", novo); } catch(e){}
+    try { localStorage.setItem("kn-tema", novo); } catch(e){}
   });
   var num = CONFIG.whatsapp.replace(/\D/g, "");
   var zap = (num.length === 10 || num.length === 11) ? "55" + num : num;

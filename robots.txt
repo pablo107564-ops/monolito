@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pablo107564-ops.github.io/monolito/sitemap.xml
+Sitemap: https://pablo107564-ops.github.io/kernelnorte/sitemap.xml
